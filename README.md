@@ -64,7 +64,7 @@ conda activate sphae
 **Container Install**
 There are two versions of the container
 
-1. [Sphae v1.5.2](https://hub.docker.com/repository/docker/npbhavya/sphae)
+1. [Sphae v1.5.5](https://hub.docker.com/repository/docker/npbhavya/sphae)
    Includes databases, so the container is about 32GB
    
    Steps to donwload and run this container
@@ -80,22 +80,6 @@ There are two versions of the container
 
     singularity exec -B <path/to/inputfiles>:/input,<path/to/output>:/output sphae_latest.sif sphae run --input /input --output /output
    ```
-   
-2. [Sphae v1.5.2-noDB](https://hub.docker.com/repository/docker/npbhavya/sphae)
-   This version, doesnt come with databases. So the first step would be download the databases locally and save them to one directory `<path/to/databases>`.
-   
-   Here are the commands to download sphae container 
-    ```
-    TMPDIR=<where your tmpdir lives>
-    IMAGEDIR-<where you want the image to live>
-    
-    singularity pull --tmpdir $TMPDIR --dir $IMAGEDIR docker://npbhavya/sphae:v1.5.2-noDB
-    singularity exec sphae_v1.5.2-noDB.sif sphae --help
-    singularity exec sphae_v1.5.2-noDB.sif sphae run --help
-
-    # <path/to/databases> set to sphae/workflow/databases if sphae install is run 
-    singularity exec -B <path/to/databases>:/database,<path/to/inputfiles>:/input,<path/to/output>:/output sphae_latest.sif sphae run --input /input --output /output
-    ```
    
 **Source install**
 
